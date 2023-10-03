@@ -1,5 +1,38 @@
-/* GLOBAL STYLES */
+/* CUSTOM PROPS */
+:root {
+    --font-family: "Kumbh Sans", "Arial", sans-serif;
+    --text-dark: #1D2026;
+    --text-color: #69707D;
+    --accent-color-hover: #FFAB6A;
+    --accent-color: #FF7E1B;
+    --light-bg: #F6F8FD;
+    --accent-color-light: #FFEEE2;
+}
 
+
+
+/* FONT-FACES */
+@font-face {
+    font-family: 'Kumbh Sans';
+    src: url('../fonts/KumbhSans-Regular.woff2') format('woff2'),
+        url('../fonts/KumbhSans-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Kumbh Sans';
+    src: url('../fonts/KumbhSans-Bold.woff2') format('woff2'),
+        url('../fonts/KumbhSans-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+
+
+/* GLOBAL STYLES */
 html {
     height: 100%;
     box-sizing: border-box;
@@ -19,10 +52,10 @@ body {
     padding: 0;
     margin: 0;
     font-size: 16px;
-    line-height: 1.5;
-    font-family: "Arial", sans-serif;
+    line-height: 26px;
+    font-family: var(--font-family);
     background-color: #fff;
-    color: #222;
+    color: var(--text-color);
 }
 
 img {
@@ -72,9 +105,9 @@ select:-webkit-autofill:focus {
 
 .container {
     width: 100%;
-    max-width: 1200px;
-    padding-left: 50px;
-    padding-right: 50px;
+    max-width: 1148px;
+    padding-left: 24px;
+    padding-right: 24px;
     margin-right: auto;
     margin-left: auto;
 }
