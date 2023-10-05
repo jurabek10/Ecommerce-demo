@@ -16,7 +16,7 @@
 @font-face {
     font-family: 'Kumbh Sans';
     src: url('../fonts/KumbhSans-Regular.woff2') format('woff2'),
-        url('../fonts/KumbhSans-Regular.woff') format('woff');
+    url('../fonts/KumbhSans-Regular.woff') format('woff');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -25,7 +25,7 @@
 @font-face {
     font-family: 'Kumbh Sans';
     src: url('../fonts/KumbhSans-Bold.woff2') format('woff2'),
-        url('../fonts/KumbhSans-Bold.woff') format('woff');
+    url('../fonts/KumbhSans-Bold.woff') format('woff');
     font-weight: bold;
     font-style: normal;
     font-display: swap;
@@ -177,6 +177,185 @@ select:-webkit-autofill:focus {
 }
 
 
+
+/* BUTTON */
+.button {
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+    background-color: transparent;
+    font-size: 16px;
+    line-height: 1;
+    font-weight: bold;
+    border-radius: 10px;
+    text-decoration: none;
+    cursor: pointer;
+    background-color: var(--accent-color);
+    color: #fff;
+    overflow: hidden;
+    text-align: center;
+}
+
+.button-block {
+    display: flex;
+    width: 100%;
+}
+
+.button:hover {
+    background-color: var(--accent-color-hover);
+}
+
+.button:active {
+    transform: translateY(2px);
+}
+
+.button-wide {
+    min-width: 272px;
+}
+
+.button-inner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 22px 20px 18px;
+}
+
+.button-prepend {
+    margin-right: 16px;
+}
+
+
+
+/* SHOPPING-CART-PRODUCTS */
+.shopping-cart-products {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.shopping-cart-products__item:not(:last-child) {
+    margin-bottom: 16px;
+}
+
+
+/* ITEM-SHOPPING-CART-PRODUCTS */
+.item-shopping-cart-products {
+    display: flex;
+    align-items: flex-start;
+}
+
+.item-shopping-cart-products__img {
+    flex-shrink: 0;
+    margin-right: 16px;
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.item-shopping-cart-products__info {
+    flex-grow: 1;
+    width: 100%;
+    margin-right: 18px;
+    overflow: hidden;
+}
+
+.item-shopping-cart-products__name {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    text-transform: capitalize;
+}
+
+.item-shopping-cart-products__subtotal {
+    font-weight: bold;
+    color: var(--text-dark);
+}
+
+.item-shopping-cart-products__remove-button {   
+    padding: 0;
+    border: 0;
+    color: transparent;
+    align-self: center;
+    color: #C3CAD9;
+    cursor: pointer;
+}
+
+.item-shopping-cart-products__remove-icon {
+    display: block;
+    width: 14px;
+    height: 16px;
+}
+
+
+.item-shopping-cart-products__remove-button:hover {
+    color: var(--text-dark);
+}
+
+.item-shopping-cart-products__remove-button:active {
+    opacity: 0.6;
+}
+
+
+
+
+/* SHOPPING-CART */
+.shopping-cart {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-height: 256px;
+    border-radius: 6px;
+    background-color: #fff;
+}
+
+.shopping-cart__modal {
+    box-shadow: 0px 20px 50px -20px rgba(29, 32, 38, 0.50);
+}
+
+.shopping-cart___header {
+    padding: 24px 24px 27px;
+    border-bottom: 1px solid var(--divider-bg);
+}
+
+.shopping-cart__title {
+    margin: 0;
+    color: var(--text-dark);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.shopping-cart__inner {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 24px;
+}
+
+.shopping-cart__empty {
+    display: none;
+}
+
+.shopping-cart--empty .shopping-cart__empty {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+}
+
+.shopping-cart--empty .shopping-cart__content {
+    display: none;
+}
+
+.shopping-cart__products {
+    margin-bottom: 24px;
+}
+
+
 /* MAIN-CONTENT */
 
 main {
@@ -187,6 +366,7 @@ main {
 
 /* SITE-HEADER */
 .site-header__container {
+    position: relative;
     display: flex;
     align-items: center;
     border-bottom: 1px solid var(--divider-bg);
@@ -234,10 +414,21 @@ main {
     border-radius: 6.5px;
 }
 
+.site-header__cart--empty .site-header__cart-product-count {
+    display: none;
+}  
+
 .site-header__cart-icon {
     width: 22px;
     height: 20px;
     object-fit: contain;
+}
+
+.site-header__cart-modal {
+    position: absolute;
+    right: -76px;
+    top: 94px;
+    width: 360px;
 }
 
 .site-header__profile-link {
