@@ -425,9 +425,14 @@ main {
 }
 
 .site-header__cart-modal {
+    display: none;
+}
+
+.site-header__cart-modal--open {
     position: absolute;
     right: -76px;
     top: 94px;
+    display: block;
     width: 360px;
 }
 
@@ -442,6 +447,10 @@ main {
 
 .site-header__profile-link:hover {
     border-color: var(--accent-color);
+}
+
+.site-header__profile-link:active {
+    opacity: 0.6;
 }
 
 .site-header__avatar {
