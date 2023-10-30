@@ -1,5 +1,7 @@
 const modifiers = {
-    imgThumbnailActive: "img-showcase_thumbnail--active"
+    siteHeaderCartModalOpen: "site-header__cart-modal--open",
+    imgThumbnailActive: "img-showcase_thumbnail--active",
+    lightboxOpen: "lightbox--open"
 };
 
 
@@ -14,7 +16,7 @@ if (elSiteHeaderCartLink) {
     elSiteHeaderCartLink.addEventListener('click', function (evt) {
         evt.preventDefault();
 
-        elSiteHeaderCartModal.classList.toggle("site-header__cart-modal--open")
+        elSiteHeaderCartModal.classList.toggle(modifiers.siteHeaderCartModalOpen);
     });
 }
 
@@ -39,3 +41,20 @@ elsImgShowcaseThumbnailButton.forEach(function (elButton) {
         elImgShowcaseActiveImg.srcset = `${elButton.dataset.imgShowcaseBig} 1x ${elButton.dataset.imgShowcaseBigRetina}2x`;
         });
     });
+
+    // LIGHTBOX
+    const elLightboxToggler = document.querySelector(".js-lightbox-toggle");
+    const elLightbox = document.querySelector(".lightbox");
+    const elLightboxClose = document.querySelector(".js-lightbox-close");
+
+    if (elLightboxToggler) {
+        elLightboxToggler.addEventListener("click", function () {
+            elLightbox.classList.add(modifiers.lightboxOpen);
+        });
+    };
+
+    if (elLightboxClose) {
+        elLightboxClose.addEventListener("click", function() {
+            elLightbox.classList.remove(modifiers.lightboxOpen);
+        });
+    }
