@@ -15,7 +15,7 @@ const elSiteHeaderCartModal = document.querySelector(".site-header__cart-modal")
 if (elSiteHeaderCartLink) {
     elSiteHeaderCartLink.addEventListener('click', function (evt) {
         evt.preventDefault();
-
+        
         elSiteHeaderCartModal.classList.toggle(modifiers.siteHeaderCartModalOpen);
     });
 }
@@ -32,29 +32,50 @@ elsImgShowcaseThumbnailButton.forEach(function (elButton) {
         elsImgThumbnail.forEach(function (elImgThumbnail) {
             elImgThumbnail.classList.remove(modifiers.imgThumbnailActive);
         });
-
+        
         // Add active state to click button
         elButton.parentElement.classList.add(modifiers.imgThumbnailActive);
-
+        
         // Update active img accordingly
         elImgShowcaseActiveImg.src = elButton.dataset.imgShowcaseBig;
         elImgShowcaseActiveImg.srcset = `${elButton.dataset.imgShowcaseBig} 1x ${elButton.dataset.imgShowcaseBigRetina}2x`;
-        });
     });
+});
 
-    // LIGHTBOX
-    const elLightboxToggler = document.querySelector(".js-lightbox-toggle");
-    const elLightbox = document.querySelector(".lightbox");
-    const elLightboxClose = document.querySelector(".js-lightbox-close");
+// LIGHTBOX
+const elLightboxToggler = document.querySelector(".js-lightbox-toggle");
+const elLightbox = document.querySelector(".lightbox");
+const elLightboxClose = document.querySelector(".js-lightbox-close");
 
-    if (elLightboxToggler) {
-        elLightboxToggler.addEventListener("click", function () {
-            elLightbox.classList.add(modifiers.lightboxOpen);
+if (elLightboxToggler) {
+    elLightboxToggler.addEventListener("click", function () {
+        elLightbox.classList.add(modifiers.lightboxOpen);
+    });
+};
+
+if (elLightboxClose) {
+    elLightboxClose.addEventListener("click", function() {
+        elLightbox.classList.remove(modifiers.lightboxOpen);
+    });
+}
+
+// Thumbnail click
+const elImgLightboxActiveImg = elLightbox.querySelector(".img-showcase__active-img");
+const elsImgLightboxThumbnailButton = elLightbox.querySelectorAll(".js-img-lightbox-thumbnail-button");
+const elsLightboxImgThumbnail = elLightbox.querySelectorAll(".img-showcase_thumbnail");
+
+elsImgLightboxThumbnailButton.forEach(function (elButton) {
+    elButton.addEventListener("click", function () {
+        // Remove active state from all buttons
+        elsLightboxImgThumbnail.forEach(function (elImgThumbnail) {
+            elImgThumbnail.classList.remove(modifiers.imgThumbnailActive);
         });
-    };
-
-    if (elLightboxClose) {
-        elLightboxClose.addEventListener("click", function() {
-            elLightbox.classList.remove(modifiers.lightboxOpen);
-        });
-    }
+        
+        // Add active state to click button
+        elButton.parentElement.classList.add(modifiers.imgThumbnailActive);
+        
+        // Update active img accordingly
+        elImgLightboxActiveImg.src = elButton.dataset.imgShowcaseBig;
+        elImgLightboxActiveImg.srcset = `${elButton.dataset.imgShowcaseBig} 1x ${elButton.dataset.imgShowcaseBigRetina} 2x`;
+    });
+});
