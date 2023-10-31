@@ -139,3 +139,25 @@ if (elLightboxControlPrev) {
         elImgLightboxActiveImg.srcset = `${elNextActiveItem.children[0].dataset.imgShowcaseBig} 1x ${elNextActiveItem.children[0].dataset.imgShowcaseBigRetina} 2x`;
     });
 }
+
+
+// PRODUCT COUNT
+const elProductQtyIncrementButton = document.querySelector(".js-product-quantity-increment-button");
+const elProductDecrementQtyButton = document.querySelector(".js-product-quantity-decrement-button");
+const elProductInfoQty = document.querySelector(".product-info__quantity");
+
+if (elProductQtyIncrementButton) {
+    elProductQtyIncrementButton.addEventListener("click", function () {
+        elProductInfoQty.textContent = parseInt(elProductInfoQty.textContent, 10) + 1;
+    });
+}
+
+if (elProductDecrementQtyButton) {
+    elProductDecrementQtyButton.addEventListener("click", function () {
+        const qty = parseInt(elProductInfoQty.textContent, 10);
+
+        if (qty > 0) {
+            elProductInfoQty.textContent = qty - 1;
+        }
+    });
+}
